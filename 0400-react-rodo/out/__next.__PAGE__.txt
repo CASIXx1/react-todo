@@ -1,0 +1,10 @@
+1:"$Sreact.fragment"
+2:I[4053,["https://casixx1.github.io/0400-react-todo/_next/static/chunks/718d8c6df518b6a7.js"],"ClientPageRoot"]
+3:I[98334,["https://casixx1.github.io/0400-react-todo/_next/static/chunks/8087676dc73ee691.js"],"default"]
+6:I[36923,["https://casixx1.github.io/0400-react-todo/_next/static/chunks/718d8c6df518b6a7.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+:HL["https://casixx1.github.io/0400-react-todo/_next/static/chunks/84b1f9e2b7f4d833.css","style"]
+0:{"buildId":"IL_BbrL6iEryjo6luDOZy","rsc":["$","$1","c",{"children":[["$","$L2",null,{"Component":"$3","serverProvidedParams":{"searchParams":{},"params":{},"promises":["$@4","$@5"]}}],[["$","link","0",{"rel":"stylesheet","href":"https://casixx1.github.io/0400-react-todo/_next/static/chunks/84b1f9e2b7f4d833.css","precedence":"next"}],["$","script","script-0",{"src":"https://casixx1.github.io/0400-react-todo/_next/static/chunks/8087676dc73ee691.js","async":true}]],["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]]}],"loading":null,"isPartial":false}
+4:{}
+5:"$0:rsc:props:children:0:props:serverProvidedParams:params"
+8:null
