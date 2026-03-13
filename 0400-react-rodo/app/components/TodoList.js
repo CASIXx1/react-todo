@@ -1,12 +1,23 @@
-export default function TodoList() {
+import TodoListItem from "@/app/components/TodoListItem";
+import styles from "./TodoList.module.sass";
+
+export default function TodoList({todoList}) {
   return (
-    <div className="list__header">
-      <div className="list__header-item">&nbsp;</div>
-      <div className="list__header-item list__header-item--name">
-        タスク
+    <>
+      <div className={styles.list__header}>
+        <div className={styles.list__header_item}>&nbsp;</div>
+        <div className={`${styles.list__header_item} ${styles['list__header_item--name']}`}>
+          タスク
+        </div>
+        <div className={styles.list__header_item}>期限日</div>
+        <div className={styles.list__header_item}>&nbsp;</div>
       </div>
-      <div className="list__header-item">期限日</div>
-      <div className="list__header-item">&nbsp;</div>
-    </div>
+
+      <div>
+        {todoList.map((todo) => (
+          <TodoListItem todo={todo}/>
+        ))}
+      </div>
+    </>
   );
 }

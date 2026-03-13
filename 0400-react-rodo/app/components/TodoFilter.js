@@ -1,11 +1,13 @@
+import styles from "./TodoFilter.module.sass";
+
 export default function TodoFilter() {
 
   return (
-    <div className="list__setting">
-      <label className="list__setting-label">
+    <div className={styles.list__setting}>
+      <label className={styles.list__setting_label}>
         <input
-            type="checkbox"
-            className="list__setting-input js-show-completed"
+          type="checkbox"
+          className={styles.list__setting_input}
         />
         完了タスクを表示
       </label>

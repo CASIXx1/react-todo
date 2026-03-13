@@ -2,7 +2,7 @@ import styles from "./TodoForm.module.sass";
 
 export default function TodoForm() {
   return (
-    <form className={styles.form}>
+    <form className={styles["form"]}>
       <div className={styles["form__input-group"]}>
         <div
           className={`${styles["form__input"]} ${styles["form__input--name"]}`}

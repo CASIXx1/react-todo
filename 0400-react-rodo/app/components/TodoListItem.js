@@ -1,5 +1,7 @@
+import styles from './TodoListItem.module.sass';
+
 export default function TodoListItem() {
   return (
-    <div className="list__container js-list-container"></div>
+    <div className={styles.list__container}></div>
   );
 }
