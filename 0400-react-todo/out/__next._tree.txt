@@ -1,5 +1,5 @@
-:HL["https://casixx1.github.io/0400-react-todo/_next/static/chunks/738f9b2ac1ade577.css","style"]
-:HL["https://casixx1.github.io/0400-react-todo/_next/static/media/797e433ab948586e-s.p.dbea232f.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-:HL["https://casixx1.github.io/0400-react-todo/_next/static/media/caa3a2e1cccd8315-s.p.853070df.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-:HL["https://casixx1.github.io/0400-react-todo/_next/static/chunks/84b1f9e2b7f4d833.css","style"]
-0:{"buildId":"IL_BbrL6iEryjo6luDOZy","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
+:HL["https://casixx1.github.io/react-todo/_next/static/chunks/738f9b2ac1ade577.css","style"]
+:HL["https://casixx1.github.io/react-todo/_next/static/media/797e433ab948586e-s.p.dbea232f.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["https://casixx1.github.io/react-todo/_next/static/media/caa3a2e1cccd8315-s.p.853070df.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["https://casixx1.github.io/react-todo/_next/static/chunks/6836d988789093d3.css","style"]
+0:{"buildId":"Vpazufd2dD6SFWyB7EcMw","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":true},"staleTime":300}

@@ -3,7 +3,7 @@ self.__BUILD_MANIFEST = {
     "afterFiles": [],
     "beforeFiles": [
       {
-        "source": "/0400-react-todo//_next/:path+",
+        "source": "/react-todo//_next/:path+",
         "destination": "/_next/:path+"
       }
     ],
