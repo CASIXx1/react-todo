@@ -36,7 +36,7 @@ npx create-next-app@latest
 
 ```bash
 % npx create-next-app@latest
-✔ What is your project named? … 0400-react-rodo
+✔ What is your project named? … 0400-react-todo
 ✔ Would you like to use TypeScript? … No 
 ✔ Would you like to use ESLint? … Yes
 ✔ Would you like to use Tailwind CSS? … No
