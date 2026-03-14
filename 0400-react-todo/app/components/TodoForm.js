@@ -1,8 +1,18 @@
 import styles from "./TodoForm.module.sass";
 
-export default function TodoForm() {
+export default function TodoForm({ onAddTodo }) {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    const formData = new FormData(event.currentTarget);
+    const name = String(formData.get("name"));
+    const deadline = String(formData.get("deadline"));
+
+    onAddTodo({ name, deadline });
+  }
+
   return (
-    <form className={styles["form"]}>
+    <form className={styles["form"]} onSubmit={handleSubmit}>
       <div className={styles["form__input-group"]}>
         <div
           className={`${styles["form__input"]} ${styles["form__input--name"]}`}
