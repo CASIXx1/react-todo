@@ -1,7 +1,7 @@
 import TodoListItem from "@/app/components/TodoListItem";
 import styles from "./TodoList.module.sass";
 
-export default function TodoList({todoList}) {
+export default function TodoList({ todoList, onToggleCompleted, onDeleteTodo }) {
   return (
     <>
       <div className={styles.list__header}>
@@ -15,7 +15,11 @@ export default function TodoList({todoList}) {
 
       <div>
         {todoList.map((todo) => (
-          <TodoListItem todo={todo}/>
+          <TodoListItem
+            todo={todo}
+            onToggleCompleted={onToggleCompleted}
+            onDeleteTodo={onDeleteTodo}
+          />
         ))}
       </div>
     </>

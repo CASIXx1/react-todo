@@ -5,7 +5,6 @@ import styles from "./Home.module.sass";
 import TodoForm from "./TodoForm";
 import TodoFilter from "./TodoFilter";
 import TodoList from "./TodoList";
-import TodoListItem from "./TodoListItem";
 
 class AppDate {
   static parse(dateString) {
@@ -80,6 +79,23 @@ export default function Home() {
     ]);
   }
 
+  const handleToggleCompleted = (todo, checked) => {
+    setTodoList((currentTodoList) =>
+      currentTodoList.map((currentTodo) =>
+        currentTodo === todo ? { ...currentTodo, completed: checked } : currentTodo
+      )
+    )
+  }
+
+  const handleDeleteTodo = (todo) => {
+    const confirmed = window.confirm('このタスクを削除しますか？')
+    if (!confirmed) return
+
+    setTodoList((currentTodoList) =>
+      currentTodoList.filter((currentTodo) => currentTodo !== todo)
+    )
+  }
+
   return (
     <main className={styles.main}>
       <div className={styles["main__container"]}>
@@ -92,9 +108,10 @@ export default function Home() {
           <TodoFilter />
 
           <div className={styles["list"]}>
-
             <TodoList
               todoList={todoList}
+              onToggleCompleted={handleToggleCompleted}
+              onDeleteTodo={handleDeleteTodo}
             />
           </div>
         </div>
