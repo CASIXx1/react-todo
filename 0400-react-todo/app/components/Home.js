@@ -109,11 +109,8 @@ export default function Home() {
   }
 
   const handleDeleteTodo = (todo) => {
-    const confirmed = window.confirm('このタスクを削除しますか？')
-    if (!confirmed) return
-
     setTodoList((currentTodoList) =>
-      currentTodoList.filter((currentTodo) => currentTodo !== todo)
+      currentTodoList.filter((currentTodo) => currentTodo.id !== todo.id)
     )
   }
 

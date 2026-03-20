@@ -32,6 +32,13 @@ export default function TodoListItem({ todo, onToggleCompleted, onDeleteTodo, on
     setIsEditingDeadline(false);
   }
 
+  const handleDelete = () => {
+    const confirmed = window.confirm("このタスクを削除しますか？");
+    if (!confirmed) return;
+
+    onDeleteTodo(todo);
+  };
+
   return (
     <div className={styles.list__container}>
       <div className={styles.list__item}>
@@ -101,7 +108,7 @@ export default function TodoListItem({ todo, onToggleCompleted, onDeleteTodo, on
         <div className={`${styles["list__item-col"]} ${styles["list__item-col--actions"]}`}>
           <Icon
             className="icon icon--trash fa-solid fa-trash"
-            onClick={onDeleteTodo}
+            onClick={handleDelete}
           />
         </div>
       </div>
