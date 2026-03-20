@@ -1,6 +1,24 @@
+import {useState} from "react";
 import styles from "./TodoListItem.module.sass";
 
-export default function TodoListItem({ todo, onToggleCompleted, onDeleteTodo }) {
+export default function TodoListItem({ todo, onToggleCompleted, onDeleteTodo, onUpdateTodo }) {
+  const [isEditingName, setIsEditingName] = useState(false);
+  const [draftName, setDraftName] = useState("");
+  const [isEditingDeadline, setIsEditingDeadline] = useState(false);
+
+  const commitName = (input) => {
+    const inputText = input.trim();
+
+    if (!inputText) {
+      setDraftName(todo.name);
+      setIsEditingName(false);
+      return;
+    }
+
+    onUpdateTodo(todo, { name: inputText });
+    setIsEditingName(false);
+  };
+
   return (
     <div className={styles.list__container}>
       <div className={styles.list__item}>
@@ -13,10 +31,33 @@ export default function TodoListItem({ todo, onToggleCompleted, onDeleteTodo }) 
         </div>
 
         <div className={styles["list__item-col"]}>
-          {todo.name}
+          {isEditingName ? (
+            <input
+              type="text"
+              value={draftName}
+              onChange={(event) => setDraftName(event.target.value)}
+              onBlur={() => setIsEditingName(false)}
+              onKeyDown={(event) => {
+                if (event.key === "Enter") {
+                  commitName(event.target.value);
+                }
+              }}
+              autoFocus
+            />
+          ) : (
+            <div onClick={() => {
+              setDraftName(todo.name);
+              setIsEditingName(true);
+            }}>
+            {todo.name}
+            </div>
+          )}
         </div>
 
-        <div className={styles["list__item-col"]}>
+        <div
+          className={styles["list__item-col"]}
+          onClick={() => setIsEditingDeadline(true)}
+        >
           {todo.deadline.toString()}
         </div>
 
