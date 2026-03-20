@@ -1,10 +1,12 @@
 import {useState} from "react";
 import styles from "./TodoListItem.module.sass";
+import Icon from "./Icon";
 
 export default function TodoListItem({ todo, onToggleCompleted, onDeleteTodo, onUpdateTodo }) {
   const [isEditingName, setIsEditingName] = useState(false);
-  const [draftName, setDraftName] = useState("");
   const [isEditingDeadline, setIsEditingDeadline] = useState(false);
+  const [draftName, setDraftName] = useState("");
+  const [draftDeadline, setDraftDeadline] = useState("");
 
   const commitName = (input) => {
     const inputText = input.trim();
@@ -19,10 +21,21 @@ export default function TodoListItem({ todo, onToggleCompleted, onDeleteTodo, on
     setIsEditingName(false);
   };
 
+  const commitDeadline = (input) => {
+    if (!input) {
+      setDraftDeadline(todo.deadline.toString());
+      setIsEditingDeadline(false);
+      return;
+    }
+
+    onUpdateTodo(todo, { deadline: input });
+    setIsEditingDeadline(false);
+  }
+
   return (
     <div className={styles.list__container}>
       <div className={styles.list__item}>
-        <div className={styles["list__item-col"]}>
+        <div className={`${styles["list__item-col"]} ${styles["list__item-col--checkbox"]}`}>
           <input
             type="checkbox"
             checked={todo.completed}
@@ -30,44 +43,66 @@ export default function TodoListItem({ todo, onToggleCompleted, onDeleteTodo, on
           />
         </div>
 
-        <div className={styles["list__item-col"]}>
+        <div
+          className={`${styles["list__item-col"]} ${styles["list__item-col--name"]}`}
+          onClick={() => {
+            if (isEditingName) return;
+            setDraftName(todo.name);
+            setIsEditingName(true);
+          }}
+        >
           {isEditingName ? (
             <input
               type="text"
+              className={styles["list__input"]}
               value={draftName}
               onChange={(event) => setDraftName(event.target.value)}
-              onBlur={() => setIsEditingName(false)}
+              onBlur={(event) => commitName(event.currentTarget.value)}
               onKeyDown={(event) => {
                 if (event.key === "Enter") {
-                  commitName(event.target.value);
+                  commitName(event.currentTarget.value);
                 }
               }}
               autoFocus
             />
           ) : (
-            <div onClick={() => {
-              setDraftName(todo.name);
-              setIsEditingName(true);
-            }}>
-            {todo.name}
-            </div>
+            todo.name
           )}
         </div>
 
         <div
-          className={styles["list__item-col"]}
-          onClick={() => setIsEditingDeadline(true)}
+          className={`${styles["list__item-col"]} ${styles["list__item-col--deadline"]}`}
+
+          onClick={() => {
+            if (isEditingDeadline) return;
+            setDraftDeadline(todo.deadline.toString());
+            setIsEditingDeadline(true);
+          }}
         >
-          {todo.deadline.toString()}
+          {isEditingDeadline ? (
+            <input
+              type="date"
+              className={styles["list__input"]}
+              value={draftDeadline}
+              onChange={(event) => setDraftDeadline(event.target.value)}
+              onBlur={(event) => commitDeadline(event.currentTarget.value)}
+              onKeyDown={(event) => {
+                if (event.key === "Enter") {
+                  commitDeadline(event.currentTarget.value);
+                }
+              }}
+              autoFocus
+            />
+          ) : (
+            todo.deadline.toString()
+          )}
         </div>
 
-        <div className={styles["list__item-col"]}>
-          <button
-            type="button"
-            onClick={() => onDeleteTodo(todo)}
-          >
-            削除
-          </button>
+        <div className={`${styles["list__item-col"]} ${styles["list__item-col--actions"]}`}>
+          <Icon
+            className="icon icon--trash fa-solid fa-trash"
+            onClick={onDeleteTodo}
+          />
         </div>
       </div>
     </div>
