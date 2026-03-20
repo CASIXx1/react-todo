@@ -1,6 +1,7 @@
 import {useState} from "react";
 import styles from "./TodoListItem.module.sass";
 import Icon from "./Icon";
+import Checkbox from "@/app/components/Checkbox";
 
 export default function TodoListItem({ todo, onToggleCompleted, onDeleteTodo, onUpdateTodo }) {
   const [isEditingName, setIsEditingName] = useState(false);
@@ -43,10 +44,9 @@ export default function TodoListItem({ todo, onToggleCompleted, onDeleteTodo, on
     <div className={styles.list__container}>
       <div className={styles.list__item}>
         <div className={`${styles["list__item-col"]} ${styles["list__item-col--checkbox"]}`}>
-          <input
-            type="checkbox"
+          <Checkbox
             checked={todo.completed}
-            onChange={(event) => onToggleCompleted(todo, event.target.checked)}
+            onChange={(checked) => onToggleCompleted(todo, checked)}
           />
         </div>
 
@@ -108,7 +108,7 @@ export default function TodoListItem({ todo, onToggleCompleted, onDeleteTodo, on
         <div className={`${styles["list__item-col"]} ${styles["list__item-col--actions"]}`}>
           <Icon
             className="icon icon--trash fa-solid fa-trash"
-            onClick={handleDelete}
+            onClick={() => onDeleteTodo(todo)}
           />
         </div>
       </div>
