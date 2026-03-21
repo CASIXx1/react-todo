@@ -1,4 +1,5 @@
 import styles from "./TodoForm.module.sass";
+import Button from "./Button";
 
 export default function TodoForm({ onAddTodo }) {
   const handleSubmit = (event) => {
@@ -36,7 +37,7 @@ export default function TodoForm({ onAddTodo }) {
         </div>
       </div>
       <div className={styles["form__input-footer"]}>
-        <button className="button button--primary">追加</button>
+        <Button text="追加" klass="button--primary" type="submit" />
       </div>
     </form>
   );

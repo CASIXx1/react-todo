@@ -46,7 +46,7 @@ export default function TodoListItem({ todo, onToggleCompleted, onDeleteTodo, on
         <div className={`${styles["list__item-col"]} ${styles["list__item-col--checkbox"]}`}>
           <Checkbox
             checked={todo.completed}
-            onChange={(checked) => onToggleCompleted(todo, checked)}
+            onToggle={(checked) => onToggleCompleted(todo, checked)}
           />
         </div>
 
