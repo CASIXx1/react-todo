@@ -1,10 +1,10 @@
 1:"$Sreact.fragment"
 2:I[47178,["https://casixx1.github.io/react-todo/_next/static/chunks/0be1c180bea53bb0.js"],"ClientPageRoot"]
-3:I[77644,["https://casixx1.github.io/react-todo/_next/static/chunks/c1115b9e81551a20.js","https://casixx1.github.io/react-todo/_next/static/chunks/edb44f4c97613e2a.js"],"default"]
+3:I[77644,["https://casixx1.github.io/react-todo/_next/static/chunks/c1115b9e81551a20.js","https://casixx1.github.io/react-todo/_next/static/chunks/c53d0e3364719b49.js"],"default"]
 6:I[66460,["https://casixx1.github.io/react-todo/_next/static/chunks/0be1c180bea53bb0.js"],"OutletBoundary"]
 7:"$Sreact.suspense"
-:HL["https://casixx1.github.io/react-todo/_next/static/chunks/d7bc1aa6afdd5c10.css","style"]
-0:{"buildId":"cJoLi3kOl-l-vRtV7h_5p","rsc":["$","$1","c",{"children":[["$","$L2",null,{"Component":"$3","serverProvidedParams":{"searchParams":{},"params":{},"promises":["$@4","$@5"]}}],[["$","link","0",{"rel":"stylesheet","href":"https://casixx1.github.io/react-todo/_next/static/chunks/d7bc1aa6afdd5c10.css","precedence":"next"}],["$","script","script-0",{"src":"https://casixx1.github.io/react-todo/_next/static/chunks/edb44f4c97613e2a.js","async":true}]],["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]]}],"loading":null,"isPartial":false}
+:HL["https://casixx1.github.io/react-todo/_next/static/chunks/ae6d3c13e7cc3298.css","style"]
+0:{"buildId":"wCstZhn_PVoE3-1vi43pl","rsc":["$","$1","c",{"children":[["$","$L2",null,{"Component":"$3","serverProvidedParams":{"searchParams":{},"params":{},"promises":["$@4","$@5"]}}],[["$","link","0",{"rel":"stylesheet","href":"https://casixx1.github.io/react-todo/_next/static/chunks/ae6d3c13e7cc3298.css","precedence":"next"}],["$","script","script-0",{"src":"https://casixx1.github.io/react-todo/_next/static/chunks/c53d0e3364719b49.js","async":true}]],["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]]}],"loading":null,"isPartial":false}
 4:{}
 5:"$0:rsc:props:children:0:props:serverProvidedParams:params"
 8:null

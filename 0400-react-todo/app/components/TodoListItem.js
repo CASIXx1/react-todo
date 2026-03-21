@@ -2,6 +2,7 @@ import {useState} from "react";
 import styles from "./TodoListItem.module.sass";
 import Icon from "./Icon";
 import Checkbox from "@/app/components/Checkbox";
+import InputField from "@/app/components/InputField";
 
 export default function TodoListItem({ todo, onToggleCompleted, onDeleteTodo, onUpdateTodo }) {
   const [isEditingName, setIsEditingName] = useState(false);
@@ -59,17 +60,13 @@ export default function TodoListItem({ todo, onToggleCompleted, onDeleteTodo, on
           }}
         >
           {isEditingName ? (
-            <input
+            <InputField
               type="text"
-              className={styles["list__input"]}
               value={draftName}
-              onChange={(event) => setDraftName(event.target.value)}
-              onBlur={(event) => commitName(event.currentTarget.value)}
-              onKeyDown={(event) => {
-                if (event.key === "Enter") {
-                  commitName(event.currentTarget.value);
-                }
-              }}
+              klass="list__input"
+              onChange={setDraftName}
+              onBlur={commitName}
+              onEnter={commitName}
               autoFocus
             />
           ) : (
@@ -87,17 +84,13 @@ export default function TodoListItem({ todo, onToggleCompleted, onDeleteTodo, on
           }}
         >
           {isEditingDeadline ? (
-            <input
+            <InputField
               type="date"
-              className={styles["list__input"]}
               value={draftDeadline}
-              onChange={(event) => setDraftDeadline(event.target.value)}
-              onBlur={(event) => commitDeadline(event.currentTarget.value)}
-              onKeyDown={(event) => {
-                if (event.key === "Enter") {
-                  commitDeadline(event.currentTarget.value);
-                }
-              }}
+              klass="list__input"
+              onChange={setDraftDeadline}
+              onBlur={commitDeadline}
+              onEnter={commitDeadline}
               autoFocus
             />
           ) : (

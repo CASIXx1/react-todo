@@ -30,7 +30,16 @@ const initialTodoList = [
 
 export default function Home() {
   const [todoList, setTodoList] = useState(initialTodoList);
+  const [showCompleted, setShowCompleted] = useState(false);
   const nextIdRef = useRef(initialTodoList.length + 1);
+
+  const sortedTodoList = [...todoList].sort(
+    (a, b) => a.deadline.getTime() - b.deadline.getTime()
+  );
+
+  const visibleTodoList = showCompleted
+    ? sortedTodoList
+    : sortedTodoList.filter((todo) => !todo.completed);
 
   const handleAddTodo = ({ name, deadline }) => {
     setTodoList((currentTodoList) => [
@@ -84,13 +93,16 @@ export default function Home() {
           <h1 className={styles["main__header-title"]}>Todo</h1>
         </div>
         <div className={styles["main__body"]}>
-          <TodoForm onAddTodo={handleAddTodo}/>
+          <TodoForm onAddTodo={handleAddTodo} />
 
-          <TodoFilter />
+          <TodoFilter
+            checked={showCompleted}
+            onChange={setShowCompleted}
+          />
 
           <div className={styles["list"]}>
             <TodoList
-              todoList={todoList}
+              todoList={visibleTodoList}
               onToggleCompleted={handleToggleCompleted}
               onDeleteTodo={handleDeleteTodo}
               onUpdateTodo={handleUpdateTodo}
