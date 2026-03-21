@@ -9,6 +9,16 @@ export default function TodoForm({ onAddTodo }) {
     const name = String(formData.get("name"));
     const deadline = String(formData.get("deadline"));
 
+    if (!name.trim()) {
+      window.alert("タスク名を入力してください。");
+      return;
+    }
+
+    if (!deadline) {
+      window.alert("期限日を入力してください。");
+      return;
+    }
+
     onAddTodo({ name, deadline });
   }
 

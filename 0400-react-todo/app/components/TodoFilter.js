@@ -1,7 +1,6 @@
 import styles from "./TodoFilter.module.sass";
 
 export default function TodoFilter({ checked, onChange }) {
-
   return (
     <div className={styles.list__setting}>
       <label className={styles.list__setting_label}>
