@@ -1,36 +1,39 @@
-.list__item
+.listContainer
+  // 以前の styles.list__container に相当するスタイルがあればここに追加
+
+.listItem
   display: flex
   align-items: center
   width: 100%
   border-bottom: 1px solid #f0f0f0
   transition: opacity .8s
 
-.list__item--completed-dismissing
+.listItemCompletedDismissing
   opacity: 0
 
-.list__item-col
+.listItemCol
   box-sizing: border-box
   flex: 1
   padding: 16px
   border-right: 1px solid #f0f0f0
 
-.list__item-col--name
+.listItemColName
   cursor: pointer
   flex: 4
 
-.list__item-col--deadline
+.listItemColDeadline
   cursor: pointer
 
-.list__item-col--checkbox
+.listItemColCheckbox
   display: flex
   justify-content: center
 
-.list__item-col--actions
+.listItemColActions
   font-size: 12px
   display: flex
   justify-content: center
 
-.list__item--fadeout
+.listItemFadeout
   opacity: 0
   transition: opacity 1.2s ease, transform 1.2s ease
   pointer-events: none

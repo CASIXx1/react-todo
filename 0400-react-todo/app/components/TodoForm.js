@@ -23,31 +23,31 @@ export default function TodoForm({ onAddTodo }) {
   }
 
   return (
-    <form className={styles["form"]} onSubmit={handleSubmit}>
-      <div className={styles["form__input-group"]}>
+    <form className={styles.form} onSubmit={handleSubmit}>
+      <div className={styles.formInputGroup}>
         <div
-          className={`${styles["form__input"]} ${styles["form__input--name"]}`}
+          className={`${styles.formInput} ${styles.formInputName}`}
         >
-          <label className={styles["form__input-label"]}>タスク</label>
+          <label className={styles.formInputLabel}>タスク</label>
           <input
             name="name"
             type="text"
-            className={styles["form__input-field"]}
+            className={styles.formInputField}
             placeholder="タスク名を入力"
           />
         </div>
-        <div className={styles["form__input"]}>
-          <label className={styles["form__input-label"]}>期限日</label>
+        <div className={styles.formInput}>
+          <label className={styles.formInputLabel}>期限日</label>
           <input
             name="deadline"
             type="date"
-            className={styles["form__input-field"]}
+            className={styles.formInputField}
             placeholder="期限日を入力"
           />
         </div>
       </div>
-      <div className={styles["form__input-footer"]}>
-        <Button text="追加" klass="button--primary" type="submit" />
+      <div className={styles.formInputFooter}>
+        <Button text="追加" klass="buttonPrimary" type="submit" />
       </div>
     </form>
   );

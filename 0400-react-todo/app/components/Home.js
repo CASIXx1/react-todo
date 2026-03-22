@@ -88,11 +88,11 @@ export default function Home() {
 
   return (
     <main className={styles.main}>
-      <div className={styles["main__container"]}>
-        <div className={styles["main__header"]}>
-          <h1 className={styles["main__header-title"]}>Todo</h1>
+      <div className={styles.mainContainer}>
+        <div className={styles.mainHeader}>
+          <h1 className={styles.mainHeaderTitle}>Todo</h1>
         </div>
-        <div className={styles["main__body"]}>
+        <div className={styles.mainBody}>
           <TodoForm onAddTodo={handleAddTodo} />
 
           <TodoFilter
@@ -100,7 +100,7 @@ export default function Home() {
             onChange={setShowCompleted}
           />
 
-          <div className={styles["list"]}>
+          <div className={styles.list}>
             <TodoList
               todoList={visibleTodoList}
               showCompleted={showCompleted}

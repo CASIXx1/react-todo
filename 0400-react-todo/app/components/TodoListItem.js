@@ -3,6 +3,7 @@ import styles from "./TodoListItem.module.sass";
 import Icon from "./Icon";
 import Checkbox from "@/app/components/Checkbox";
 import InputField from "@/app/components/InputField";
+import iconStyles from "./Icon.module.sass";
 
 export default function TodoListItem({ todo, showCompleted, onToggleCompleted, onDeleteTodo, onUpdateTodo }) {
   const [isEditingName, setIsEditingName] = useState(false);
@@ -15,9 +16,9 @@ export default function TodoListItem({ todo, showCompleted, onToggleCompleted, o
         element.parentElement.classList.add(checkedClass);
       }
 
-      const itemContainer = element.closest(`.${styles.list__item}`);
+      const itemContainer = element.closest(`.${styles.listItem}`);
       if (itemContainer) {
-        itemContainer.classList.add(styles["list__item--fadeout"]);
+        itemContainer.classList.add(styles.listItemFadeout);
       }
       
       setTimeout(() => {
@@ -53,9 +54,9 @@ export default function TodoListItem({ todo, showCompleted, onToggleCompleted, o
   }
 
   return (
-    <div className={styles.list__container}>
-      <div className={styles.list__item}>
-        <div className={`${styles["list__item-col"]} ${styles["list__item-col--checkbox"]}`}>
+    <div className={styles.listContainer}>
+      <div className={styles.listItem}>
+        <div className={`${styles.listItemCol} ${styles.listItemColCheckbox}`}>
           <Checkbox
             checked={todo.completed}
             onToggle={handleToggle}
@@ -63,7 +64,7 @@ export default function TodoListItem({ todo, showCompleted, onToggleCompleted, o
         </div>
 
         <div
-          className={`${styles["list__item-col"]} ${styles["list__item-col--name"]}`}
+          className={`${styles.listItemCol} ${styles.listItemColName}`}
           onClick={() => {
             if (isEditingName) return;
             setDraftName(todo.name);
@@ -74,7 +75,7 @@ export default function TodoListItem({ todo, showCompleted, onToggleCompleted, o
             <InputField
               type="text"
               value={draftName}
-              klass="list__input"
+              klass="listInput"
               onChange={setDraftName}
               onBlur={commitName}
               onEnter={commitName}
@@ -86,7 +87,7 @@ export default function TodoListItem({ todo, showCompleted, onToggleCompleted, o
         </div>
 
         <div
-          className={`${styles["list__item-col"]} ${styles["list__item-col--deadline"]}`}
+          className={`${styles.listItemCol} ${styles.listItemColDeadline}`}
 
           onClick={() => {
             if (isEditingDeadline) return;
@@ -98,7 +99,7 @@ export default function TodoListItem({ todo, showCompleted, onToggleCompleted, o
             <InputField
               type="date"
               value={draftDeadline}
-              klass="list__input"
+              klass="listInput"
               onChange={setDraftDeadline}
               onBlur={commitDeadline}
               onEnter={commitDeadline}
@@ -109,9 +110,9 @@ export default function TodoListItem({ todo, showCompleted, onToggleCompleted, o
           )}
         </div>
 
-        <div className={`${styles["list__item-col"]} ${styles["list__item-col--actions"]}`}>
+        <div className={`${styles.listItemCol} ${styles.listItemColActions}`}>
           <Icon
-            className="icon icon--trash fa-solid fa-trash"
+            className={`${iconStyles.icon} fa-solid fa-trash`}
             onClick={() => onDeleteTodo(todo)}
           />
         </div>
