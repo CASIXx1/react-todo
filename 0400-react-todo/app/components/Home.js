@@ -103,6 +103,7 @@ export default function Home() {
           <div className={styles["list"]}>
             <TodoList
               todoList={visibleTodoList}
+              showCompleted={showCompleted}
               onToggleCompleted={handleToggleCompleted}
               onDeleteTodo={handleDeleteTodo}
               onUpdateTodo={handleUpdateTodo}

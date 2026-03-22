@@ -4,11 +4,29 @@ import Icon from "./Icon";
 import Checkbox from "@/app/components/Checkbox";
 import InputField from "@/app/components/InputField";
 
-export default function TodoListItem({ todo, onToggleCompleted, onDeleteTodo, onUpdateTodo }) {
+export default function TodoListItem({ todo, showCompleted, onToggleCompleted, onDeleteTodo, onUpdateTodo }) {
   const [isEditingName, setIsEditingName] = useState(false);
   const [isEditingDeadline, setIsEditingDeadline] = useState(false);
   const [draftName, setDraftName] = useState("");
   const [draftDeadline, setDraftDeadline] = useState("");
+  const handleToggle = (checked, element, checkedClass) => {
+    if (checked && !showCompleted) {
+      if (element && checkedClass) {
+        element.parentElement.classList.add(checkedClass);
+      }
+
+      const itemContainer = element.closest(`.${styles.list__item}`);
+      if (itemContainer) {
+        itemContainer.classList.add(styles["list__item--fadeout"]);
+      }
+      
+      setTimeout(() => {
+        onToggleCompleted(todo, checked);
+      }, 1200);
+    } else {
+      onToggleCompleted(todo, checked);
+    }
+  };
 
   const commitName = (input) => {
     const inputText = input.trim();
@@ -34,20 +52,13 @@ export default function TodoListItem({ todo, onToggleCompleted, onDeleteTodo, on
     setIsEditingDeadline(false);
   }
 
-  const handleDelete = () => {
-    const confirmed = window.confirm("このタスクを削除しますか？");
-    if (!confirmed) return;
-
-    onDeleteTodo(todo);
-  };
-
   return (
     <div className={styles.list__container}>
       <div className={styles.list__item}>
         <div className={`${styles["list__item-col"]} ${styles["list__item-col--checkbox"]}`}>
           <Checkbox
             checked={todo.completed}
-            onToggle={(checked) => onToggleCompleted(todo, checked)}
+            onToggle={handleToggle}
           />
         </div>
 

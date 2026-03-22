@@ -10,7 +10,7 @@ export default function Checkbox({ checked, onToggle }) {
         type="checkbox"
         className={styles["checkbox__input"]}
         checked={checked}
-        onChange={(event) => onToggle(event.target.checked)}
+        onChange={(event) => onToggle(event.target.checked, event.target, styles["checkbox--checked"])}
       />
       <Icon className="icon icon--check fa-solid fa-check" />
     </label>
